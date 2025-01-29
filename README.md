@@ -8,7 +8,7 @@
 
 ## Tratamento de dados no Alteyx
 
-![image](https://github.com/user-attachments/assets/69b8cf5a-ad4f-42b0-994d-422a57f82ace)
+![image](https://github.com/user-attachments/assets/7582458e-3549-4d51-87e3-5cb05abce776)
 
 <p> Conforme a imagem destacada temos as seguintes etapas no processo de tratamento dos dados: </p>
 
@@ -18,5 +18,6 @@
 - Tratamento do <strong>Genero</strong> do passageiro;
 - Criação do campo <strong>data de criação</strong> do registro;
 - Geração da base final tratada em arquivo <strong>.XLSX</strong>
+- Existem duas conteniers de saida de dados o 1ª traz relatórios segmentos por classe, já o 2ª traz o relatório completo.
 
 <p>Adicionado base orignial do Stanford e a base tratada no repositório.</p>
