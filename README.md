@@ -16,7 +16,7 @@
 - Tratamento do <strong>Titulo</strong> do passageiro;
 - Tratamento do <strong>Nome Completo</strong> do passageiro;
 - Tratamento do <strong>Genero</strong> do passageiro;
-- Criação do campo <strong>data de criação</strong>strong> do registro;
+- Criação do campo <strong>data de criação</strong> do registro;
 - Geração da base final tratada em arquivo <strong>.XLSX</strong>
 
 <p>Adionado base orignial do Stanford e a base tratada no repositório.</p>
