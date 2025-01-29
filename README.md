@@ -10,10 +10,13 @@
 
 ![image](https://github.com/user-attachments/assets/69b8cf5a-ad4f-42b0-994d-422a57f82ace)
 
-<p> conforme a imagem destacada temos as seguintes etapas no processo de tratamento dos dados: </p>
+<p> Conforme a imagem destacada temos as seguintes etapas no processo de tratamento dos dados: </p>
+
 - Criação de <strong>ID</strong> para a tabela;
 - Tratamento do <strong>Titulo</strong> do passageiro;
 - Tratamento do <strong>Nome Completo</strong> do passageiro;
 - Tratamento do <strong>Genero</strong> do passageiro;
 - Criação do campo <strong>data de criação</strong>strong> do registro;
 - Geração da base final tratada em arquivo <strong>.XLSX</strong>
+
+<p>Adionado base orignial do Stanford e a base tratada no repositório.</p>
