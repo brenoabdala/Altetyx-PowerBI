@@ -19,4 +19,4 @@
 - Criação do campo <strong>data de criação</strong> do registro;
 - Geração da base final tratada em arquivo <strong>.XLSX</strong>
 
-<p>Adionado base orignial do Stanford e a base tratada no repositório.</p>
+<p>Adicionado base orignial do Stanford e a base tratada no repositório.</p>
