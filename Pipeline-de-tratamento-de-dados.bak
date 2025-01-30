@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="18" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>titanic.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Survived" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+            <Field name="Pclass" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+            <Field name="Name" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+            <Field name="Sex" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+            <Field name="Age" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+            <Field name="Siblings/Spouses Aboard" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+            <Field name="Parents/Children Aboard" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+            <Field name="Fare" size="254" source="File: C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\titanic.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="690" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="IdPassageiro" selected="True" rename="ID" />
+            <SelectField field="Titulo" selected="True" />
+            <SelectField field="NomeAjustado" selected="True" rename="NomeCompleto" />
+            <SelectField field="Age" selected="True" rename="Idade" />
+            <SelectField field="Sex" selected="True" rename="Genero" />
+            <SelectField field="Fare" selected="True" rename="PreçoTicket" />
+            <SelectField field="Pclass" selected="True" rename="ClassePassageiro" type="Int16" size="2" />
+            <SelectField field="Survived" selected="True" rename="Sobrevivente" type="Int16" size="2" />
+            <SelectField field="Name" selected="False" />
+            <SelectField field="Siblings/Spouses Aboard" selected="True" rename="Sobrinhos/Esposa a bordo" />
+            <SelectField field="Parents/Children Aboard" selected="True" rename="Parentes/Crianças a Bordo" />
+            <SelectField field="DataDeCriacao" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="210" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Contains(Uppercase(TrimLeft([Name])), 'MASTER') THEN Left(Uppercase(TrimLeft([Name])), 6)&#xA;ELSEIF Contains(Uppercase(Trim([Name])), 'MR') THEN Left(Uppercase(TrimLeft([Name])), 2)&#xA;ELSEIF Contains(Uppercase(Trim([Name])), 'MRS') THEN Left(Uppercase(TrimLeft([Name])), 3)&#xA;ELSEIF Contains(Uppercase(Trim([Name])), 'MISS') THEN Left(Uppercase(TrimLeft([Name])), 4)&#xA;ELSEIF Contains(Uppercase(Trim([Name])), 'DON') THEN Left(Uppercase(TrimLeft([Name])), 3)&#xA;ELSEIF Contains(Uppercase(Trim([Name])), 'DR') THEN Left(Uppercase(TrimLeft([Name])), 2)&#xA;ELSEIF Contains(Uppercase(Trim([Name])), 'COL') THEN Left(Uppercase(TrimLeft([Name])), 3)&#xA;ELSEIF Contains(Uppercase(Trim([Name])), 'REV') THEN Left(Uppercase(TrimLeft([Name])), 3)&#xA;ELSE Null()&#xA;ENDIF&#xA;&#xA;&#xA;" field="Titulo" size="20" type="V_String" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Titulo = IF Contains(Uppercase(TrimLeft([Name])), 'MASTER') THEN Left(Uppercase(...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="114" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>IdPassageiro</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int64</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+          <GroupFields orderChanged="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="306" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Contains(Uppercase(TrimLeft([Name])), 'MASTER') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-7)&#xA;&#xA;ELSEIF Contains(Uppercase(TrimLeft([Name])), 'MR') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-4)&#xA;&#xA;ELSEIF Contains(Uppercase(TrimLeft([Name])), 'MRS') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-5)&#xA;&#xA;ELSEIF Contains(Uppercase(TrimLeft([Name])), 'MISS') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-6)&#xA;&#xA;ELSEIF Contains(Uppercase(TrimLeft([Name])), 'DR') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-4)&#xA;&#xA;ELSEIF Contains(Uppercase(TrimLeft([Name])), 'DON') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-5)&#xA;&#xA;ELSEIF Contains(Uppercase(TrimLeft([Name])), 'COL') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-5)&#xA;&#xA;ELSEIF Contains(Uppercase(TrimLeft([Name])), 'REV') THEN Right(Uppercase(TrimLeft([Name])), Length(Uppercase(TrimLeft([Name])))-5)&#xA;&#xA;&#xA;ELSE Null()&#xA;&#xA;ENDIF" field="NomeAjustado" size="300" type="V_String" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NomeAjustado = IF Contains(Uppercase(TrimLeft([Name])), 'MASTER') THEN Right(Upp...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="402" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Uppercase([Sex]) = 'MALE' THEN 'MASCULINO' &#xA;ELSEIF Uppercase([Sex]) = 'FEMALE' THEN 'FEMININO'&#xA;ELSE Null()&#xA;ENDIF" field="Sex" size="254" type="V_String" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Sex = IF Uppercase([Sex]) = 'MALE' THEN 'MASCULINO' 
+ELSEIF Uppercase([Sex]) = '...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="498" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="TrimLeft([NomeAjustado])" field="NomeAjustado" size="300" type="V_String" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[NomeAjustado = TrimLeft([NomeAjustado])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="594" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeNow()&#xA;" field="DataDeCriacao" size="20" type="V_String" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[DataDeCriacao = DateTimeNow()
+
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="810" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\Breno\Desktop\Alteryx+PowerBi+Titanic\BaseFinalTratada.xlsx|||Passageiros</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <UNCLocal>False</UNCLocal>
+            <SkipFieldNames>False</SkipFieldNames>
+            <SuppressBlankFile>False</SuppressBlankFile>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>BaseFinalTratada.xlsx
+Query=Passageiros</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="810" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+          <TempFile>C:\Users\Breno\AppData\Local\Temp\Alteryx\Engine_13720_34b9e73a0535450682875e3c0f7c6fad_\Engine_13720_d4236592fe45474a98ee301cc8443656~.yxdb</TempFile>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Pipeline-de-tratamento-de-dados</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="b0683272-557e-43b5-94ec-6de6d017828d" />
+      <Telemetry>
+        <PreviousWorkflowId value="11045565-cb77-43a2-9705-8c74473dbc0e" />
+        <OriginWorkflowId value="11045565-cb77-43a2-9705-8c74473dbc0e" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
